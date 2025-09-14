@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>心理測驗角色介紹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "微軟正黑體", sans-serif;
+      background: url("bkg.jpg") no-repeat center center fixed; /* ← 換背景圖片 */
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.3); /* ← 框透明度 */
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .character-info {
+      margin-top: 15px;
+    }
+
+    .character-info h3 {
+      margin: 5px 0;
+      font-size: 1.5em;
+    }
+
+    .character-info p {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    /* 箭頭按鈕 */
+    .carousel-button {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%; /* ← 點擊範圍大，覆蓋左右一半 */
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      opacity: 0; /* ← 預設隱藏 */
+      transition: opacity 0.3s;
+      z-index: 5;
+    }
+
+    .carousel-button:hover {
+      opacity: 0.2; /* ← hover 時才淡淡出現 */
+    }
+
+    .carousel-button.left {
+      left: 0;
+    }
+
+    .carousel-button.right {
+      right: 0;
+    }
+
+    .carousel-button::before {
+      content: attr(data-arrow);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: white;
+      opacity: 0.8;
+      pointer-events: none; /* ← 避免文字阻擋點擊 */
+    }
+
+    .carousel-button.left::before {
+      left: 20px;
+    }
+
+    .carousel-button.right::before {
+      right: 20px;
+    }
+
+    /* 開始測驗按鈕 */
+    .start-btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #fff;
+      border-radius: 25px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <!-- 角色 1 -->
+      <div class="carousel-item">
+        <img src="cute.jpg" alt="角色1">
+        <div class="character-info">
+          <h3>角色 1</h3>
+          <p>這裡是角色 1 的介紹文字。</p>
+        </div>
+      </div>
+      <!-- 角色 2 -->
+      <div class="carousel-item">
+        <img src="cute.jpg" alt="角色2">
+        <div class="character-info">
+          <h3>角色 2</h3>
+          <p>這裡是角色 2 的介紹文字。</p>
+        </div>
+      </div>
+      <!-- 角色 4 -->
+      <div class="carousel-item">
+        <img src="cute.jpg" alt="角色3">
+        <div class="character-info">
+          <h3>角色 4</h3>
+          <p>這裡是角色 4 的介紹文字。</p>
+        </div>
+      </div>
+      <!-- 角色 5 -->
+      <div class="carousel-item">
+        <img src="cute.jpg" alt="角色3">
+        <div class="character-info">
+          <h3>角色 5</h3>
+          <p>這裡是角色 5 的介紹文字。</p>
+        </div>
+      </div>
+      <!-- 角色 3 -->
+      <div class="carousel-item">
+        <img src="cute.jpg" alt="角色3">
+        <div class="character-info">
+          <h3>角色 3</h3>
+          <p>這裡是角色 3 的介紹文字。</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 左右按鈕 -->
+    <button class="carousel-button left" data-arrow="‹"></button>
+    <button class="carousel-button right" data-arrow="›"></button>
+  </div>
+
+  <button class="start-btn">開始測驗</button>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-button.left');
+    const nextBtn = document.querySelector('.carousel-button.right');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const width = items[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+  </script>
+</body>
+</html>
