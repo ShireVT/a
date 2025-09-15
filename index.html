@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>心理測驗網站</title>
 <style>
-  body {
+  body{
     margin: 0;
     font-family: "微軟正黑體", sans-serif;
     background: url('bkg.jpg') no-repeat center center/cover;
@@ -13,41 +13,33 @@
   }
 
   /* 介紹文字 */
-.intro {
-  padding: 6vw 4vw;
-  font-size: clamp(18px, 5vw, 28px); /* 調大文字，手機自適應 */
-  background: transparent;
-}
+  .intro {
+    padding: 6vw 4vw;
+    font-size: clamp(18px, 5vw, 28px);
+    background: transparent;
+  }
 
-/* 開始按鈕 */
+  /* 開始按鈕 */
   .start-button {
     margin: 25px auto;
-    padding: 4vw 14vw;          /* 拉長並變高，手機好按 */
-    font-size: clamp(20px, 5vw, 28px); /* 調大文字 */
+    padding: 4vw 14vw;
+    font-size: clamp(20px, 5vw, 28px);
     cursor: pointer;
-    color: #000;                
+    color: #000;
     border-radius: 16px;
-    background-color: #ffffff;  
+    background-color: #ffffff;
     border: none;
     transition: background 0.3s ease;
   }
-
   .start-button:hover {
     background-color: #f0f0f0;
   }
 
-
-  .start-button:hover {
-    background-color: #f0f0f0; /* 懸停稍微變灰 */
-  }
-
-
-
   /* 輪播容器自動調整大小 */
   .carousel-container {
-    position: relative;    /* 箭頭絕對定位參考 */
+    position: relative;
     width: 100vw;
-    height: 80vh;          /* 高度佔螢幕80% */
+    height: 80vh;
     margin: 20px auto;
     overflow: hidden;
   }
@@ -64,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  /* 垂直置中 */
+    justify-content: center;
     height: 100%;
     background: transparent;
     box-sizing: border-box;
@@ -75,7 +67,7 @@
   .character-card img {
     width: auto;
     max-width: 80%;
-    max-height: 90%;  /* 圖片最大高度90% */
+    max-height: 90%;
     height: auto;
     object-fit: contain;
     border-radius: 50%;
@@ -98,8 +90,8 @@
     bottom: 0;
     width: 50%;
     display: flex;
-    align-items: center;          /* 垂直置中 */
-    justify-content: center;      /* 水平置中 */
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     font-size: clamp(40px, 8vw, 60px);
     color: rgba(255,255,255,0.5);
@@ -116,63 +108,147 @@
   .arrow.left { left: 0; }
   .arrow.right { right: 0; }
 
+  /* 測驗按鈕 */
+  .quiz-option {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    background-color: #fff;
+    cursor: pointer;
+    width: 70%;
+    margin-bottom: 2vw;
+  }
 </style>
 </head>
 <body>
 
-<!-- 介紹文字 -->
-<div class="intro">
-  <h1>BLA BLA</h1>
-  <p>測試</p>
+<!-- =======================
+     首頁內容保留不動
+======================= -->
+<div id="home-page">
+
+  <!-- 介紹文字 -->
+  <div class="intro">
+    <h1>BLA BLA</h1>
+    <p>測試</p>
+  </div>
+
+  <!-- 開始按鈕 -->
+  <button class="start-button" onclick="startTest()">開始測驗</button>
+
+  <!-- 角色輪播 -->
+  <div class="carousel-container" id="carousel-container">
+    <div class="carousel" id="carousel">
+      <div class="character-card"><img src="IMG_2933.PNG" alt="角色1"><h3>角色1</h3><p>角色1介紹文字</p></div>
+      <div class="character-card"><img src="IMG_2934.PNG" alt="角色2"><h3>角色2</h3><p>角色2介紹文字</p></div>
+      <div class="character-card"><img src="IMG_2935.PNG" alt="角色3"><h3>角色3</h3><p>角色3介紹文字</p></div>
+      <div class="character-card"><img src="IMG_2936.PNG" alt="角色4"><h3>角色4</h3><p>角色4介紹文字</p></div>
+      <div class="character-card"><img src="IMG_2937.PNG" alt="角色5"><h3>角色5</h3><p>角色5介紹文字</p></div>
+    </div>
+    <div class="arrow left" onclick="moveCarousel(-1)">&#10094;</div>
+    <div class="arrow right" onclick="moveCarousel(1)">&#10095;</div>
+  </div>
+
 </div>
 
-<!-- 開始按鈕 -->
-<button class="start-button" onclick="startTest()">開始測驗</button>
-
-<!-- 角色輪播 -->
-<div class="carousel-container" id="carousel-container">
-  <div class="carousel" id="carousel">
-    <div class="character-card"><img src="IMG_2933.PNG" alt="角色1"><h3>角色1</h3><p>角色1介紹文字</p></div>
-    <div class="character-card"><img src="IMG_2934.PNG" alt="角色2"><h3>角色2</h3><p>角色2介紹文字</p></div>
-    <div class="character-card"><img src="IMG_2935.PNG" alt="角色3"><h3>角色3</h3><p>角色3介紹文字</p></div>
-    <div class="character-card"><img src="IMG_2936.PNG" alt="角色4"><h3>角色4</h3><p>角色4介紹文字</p></div>
-    <div class="character-card"><img src="IMG_2937.PNG" alt="角色5"><h3>角色5</h3><p>角色5介紹文字</p></div>
-  </div>
-  <div class="arrow left" onclick="moveCarousel(-1)">&#10094;</div>
-  <div class="arrow right" onclick="moveCarousel(1)">&#10095;</div>
+<!-- =======================
+     測驗頁面
+======================= -->
+<div id="quiz-page" style="display:none; min-height:100vh; text-align:center; padding:5vw;">
+  <h2 id="question-text" style="margin-bottom:3vw;"></h2>
+  <div id="options-container" style="display:flex; flex-direction:column; gap:2vw; align-items:center;"></div>
 </div>
 
 <script>
-const carousel = document.getElementById('carousel');
-const items = document.querySelectorAll('.character-card');
-const total = items.length;
-let currentIndex = 0;
+  // =======================
+  // 角色輪播
+  // =======================
+  const carousel = document.getElementById('carousel');
+  const items = document.querySelectorAll('.character-card');
+  const total = items.length;
+  let currentIndex = 0;
 
-function updateCarousel() {
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
 
-function moveCarousel(direction) {
-  currentIndex = (currentIndex + direction + total) % total;
-  updateCarousel();
-}
+  function moveCarousel(direction) {
+    currentIndex = (currentIndex + direction + total) % total;
+    updateCarousel();
+  }
 
-function startTest() {
-  alert("測驗開始！");
-}
+  // 手指滑動切換
+  let startX = 0;
+  const container = document.getElementById('carousel-container');
+  container.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  container.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+    if(diff > 50) moveCarousel(-1);
+    else if(diff < -50) moveCarousel(1);
+  });
 
-// 手指滑動切換
-let startX = 0;
-const container = document.getElementById('carousel-container');
+  // =======================
+  // 測驗系統
+  // =======================
+  const questions = [
+    { text: "1.以下選項中你對什麼比較感興趣？", options: ["愛情","?","?","?","?"] },
+    { text: "2.如果你有一筆突如其來的錢你會怎麼使用？", options: ["花在另一半身上","?","?","?","?"] },
+    { text: "3.在賭博中的心態", options: ["一把接一把，爽到為止","?","?","?","?ssssss"] },
+    { text: "4.朋友/愛人向你借錢你會？", options: ["OK啊要多少都借","?","?","?","?"] },
+    { text: "5.如果收到簡訊說你的帳號被盜用了並向你要錢，你會？", options: ["傳奇怪的訊息回去","?","?","?","?"] },
+    { text: "6.投資賺錢了你會？", options: ["存銀行賺利息","?","?","?","?"] },
+    { text: "7.如果收到是我是我詐騙？", options: ["跟他談心","?","?","?","?"] },
+    { text: "8.某賭博網站顯示你「差一點中大獎」，並鼓勵你再儲值一次，你會？", options: ["?","?","?","?","?"] },
+    { text: "9.網購後收到詐騙包裹，你會？", options: ["好奇裡面的東西，花錢領回家","?","?","?","?"] },
+    { text: "10.當你有朋友跟你說出國有高薪工作，你會?", options: ["在出境時被警告於是放棄","?","?","?","?"] }
+  ];
+  const optionToRole = ["role1","role2","role3","role4","role5"];
+  let currentQuestion = 0;
+  let scores = { role1:0, role2:0, role3:0, role4:0, role5:0 };
 
-container.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-container.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX;
-  const diff = endX - startX;
-  if(diff > 50) moveCarousel(-1);
-  else if(diff < -50) moveCarousel(1);
-});
+  function startTest() {
+    document.getElementById('home-page').style.display = 'none';
+    document.getElementById('quiz-page').style.display = 'block';
+    showQuestion();
+  }
+
+  function showQuestion() {
+    const qText = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    qText.innerText = questions[currentQuestion].text;
+    optionsContainer.innerHTML = '';
+    questions[currentQuestion].options.forEach((optText,index)=>{
+      const btn = document.createElement('button');
+      btn.innerText = optText;
+      btn.className = 'quiz-option';
+      btn.onclick = ()=>selectOption(index);
+      optionsContainer.appendChild(btn);
+    });
+  }
+
+  function selectOption(optionIndex) {
+    const role = optionToRole[optionIndex];
+    scores[role] += 1;
+    currentQuestion++;
+    if(currentQuestion < questions.length) showQuestion();
+    else showResult();
+  }
+
+  function showResult() {
+    let maxRole='role1';
+    let maxScore=scores[maxRole];
+    for(let r in scores){
+      if(scores[r]>maxScore){
+        maxRole=r;
+        maxScore=scores[r];
+      }
+    }
+    const quizPage=document.getElementById('quiz-page');
+    quizPage.innerHTML=`<h2>測驗結束！你最像的是 ${maxRole}</h2>`;
+  }
+
 </script>
-
 </body>
 </html>
