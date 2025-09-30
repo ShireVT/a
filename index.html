@@ -35,7 +35,7 @@
       background-color: #f0f0f0;
     }
 
-    /* 輪播容器自動調整大小 */
+    /* 角色輪播容器 */
     .carousel-container {
       position: relative;
       width: 100vw;
@@ -50,7 +50,6 @@
       height: 100%;
     }
 
-    /* 角色卡片 */
     .character-card {
       flex: 0 0 100%;
       display: flex;
@@ -83,7 +82,6 @@
       font-size: clamp(14px, 4vw, 20px);
     }
 
-    /* 箭頭 */
     .arrow {
       position: absolute;
       top: 0;
@@ -147,10 +145,7 @@
   <div id="home-page">
     <div class="intro">
       <h1>The Pien</h1>
-      <p>測出你的隱藏詐騙人格
-如果你是詐騙犯的話，會是什麼類型呢？你最容易被什麼人騙？如何防範詐騙？
-我們將在這裡為你揭曉。
-</p>
+      <p>測試</p>
     </div>
     <button class="start-button" onclick="startTest()">開始測驗</button>
 
@@ -161,7 +156,6 @@
           <h3>角色5</h3>
           <p>角色5介紹文字</p>
         </div>
-        <!-- 如果有更多角色可以在這裡加 -->
       </div>
       <div class="arrow left" onclick="moveCarousel(-1)">&#10094;</div>
       <div class="arrow right" onclick="moveCarousel(1)">&#10095;</div>
@@ -200,7 +194,7 @@
       { text: "6.投資賺錢了你會？", options: ["存銀行賺利息","課金","我怕賠錢這樣就好了","繼續啊賺更多","好好規劃這筆錢財"] },
       { text: "7.如果收到是我是我詐騙？", options: ["跟他談心","問他借的錢什麼時候還","直接掛電話","反跟他推銷保險","「什麼......？他明明已經去世了啊......」"] },
       { text: "8.某賭博網站顯示你「差一點中大獎」，並鼓勵你再儲值一次，你會？", options: ["再一課點點就好","儲值啊必須儲","這是騙錢的吧","跟朋友說，讓朋友去儲值","直接關掉頁面"] },
-      { text: "9.網購後收到詐騙包裹，你會？", options: ["好奇裡面的東西，花錢領回家","隨機抽一名路人送他","不領","送給朋友","查詢網
+      { text: "9.網購後收到詐騙包裹，你會？", options: ["好奇裡面的東西，花錢領回家","隨機抽一名路人送他","不領","送給朋友","查
 
     const optionToRole = ["role1","role2","role3","role4","role5"];
     let currentQuestion = 0;
@@ -283,5 +277,6 @@
 
 </body>
 </html>
+
 
 
