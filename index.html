@@ -120,14 +120,14 @@
     /* 淡出、淡入效果 */
     .fade-out {
       opacity: 0;
-      transition: opacity 1s ease-in-out;
       visibility: hidden;
+      transition: opacity 1s ease-in-out;
     }
 
     .fade-in {
       opacity: 1;
-      transition: opacity 1s ease-in-out;
       visibility: visible;
+      transition: opacity 1s ease-in-out;
     }
 
     /* 頁面初始設置 */
@@ -144,9 +144,9 @@
     <div class="intro">
       <h1>The Pien</h1>
       <p>測出你的隱藏詐騙人格
-如果你是詐騙犯的話，會是什麼類型呢？你最容易被什麼人騙？如何防範詐騙？
-我們將在這裡為你揭曉。
-</p>
+        如果你是詐騙犯的話，會是什麼類型呢？你最容易被什麼人騙？如何防範詐騙？
+        我們將在這裡為你揭曉。
+      </p>
     </div>
     <button class="start-button" onclick="startTest()">開始測驗</button>
 
@@ -170,28 +170,31 @@
   </div>
 
   <script>
-   // 控制測驗頁面的顯示與隱藏
-function startTest() {
-  // 首頁淡出
-  const homePage = document.getElementById('home-page');
-  homePage.classList.remove('fade-in');
-  homePage.classList.add('fade-out');
+    // 控制測驗頁面的顯示與隱藏
+    function startTest() {
+      // 首頁淡出
+      const homePage = document.getElementById('home-page');
+      homePage.classList.remove('fade-in');
+      homePage.classList.add('fade-out');
 
-  // 測驗頁面淡入
-  const quizPage = document.getElementById('quiz-page');
-  quizPage.classList.remove('fade-out');
-  quizPage.classList.add('fade-in');
+      // 測驗頁面淡入
+      const quizPage = document.getElementById('quiz-page');
+      quizPage.classList.remove('fade-out');
+      quizPage.classList.add('fade-in');
 
-  // 可選的測驗題目顯示
-  setTimeout(() => {
-    showQuestion(0);
-  }, 1200); // 調整延遲，給過渡效果更多時間
-}
+      // 可選的測驗題目顯示
+      setTimeout(() => {
+        showQuestion(0);
+      }, 1000); // 等待淡出結束再顯示測驗
+    }
 
     // 測驗題目顯示
     const questions = [
       { text: "1.以下選項中你對什麼比較感興趣？", options: ["愛情", "網路", "躺平", "股票", "金錢"] },
       { text: "2.如果你有一筆突如其來的錢你會怎麼使用？", options: ["花在另一半身上", "早花早享受", "存起來", "投資股票", "確認金錢來源是否有問題"] },
+      { text: "3.在賭博中的心態", options: ["一把接一把，爽到為止", "All in啦這樣才是我", "根本沒打算要賭", "及時止損，有賺就好", "小賭怡情，當遊戲在玩"] },
+      { text: "4.朋友/愛人向你借錢你會？", options: ["OK啊要多少都借", "跟對方說「我也沒錢哈哈」", "不借", "跟他收利息", "確認對方是否被盜帳號"] },
+      { text: "5.如果收到簡訊說你的帳號被盜用了並向你要錢，你會？", options: ["傳奇怪的訊息回去", "我帳號更貴啊你才應該給我錢", "忽略簡訊", "不相信，直接刪除郵件", "核實真偽"] }
       // 更多題目...
     ];
 
@@ -240,5 +243,3 @@ function startTest() {
   </script>
 </body>
 </html>
-
-
