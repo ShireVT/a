@@ -119,27 +119,29 @@
     width: 70%;
     margin-bottom: 2vw;
   }
+
   /* =======================
-   淡出效果
-======================= */
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
+     淡出效果
+  ======================== */
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
 
-/* =======================
-   淡入效果
-======================= */
-.fade-in {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
+  /* =======================
+     淡入效果
+  ======================== */
+  .fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
 
-/* 頁面初始設置 */
-#home-page,
-#quiz-page {
-  opacity: 1;
-}
+  /* 頁面初始設置 */
+  #home-page,
+  #quiz-page {
+    opacity: 1;
+  }
+
 </style>
 </head>
 <body>
@@ -152,7 +154,7 @@
   <!-- 介紹文字 -->
   <div class="intro">
     <h1>The Pien</h1>
-    <p>:))</p>
+    <p>測試</p>
   </div>
 
   <!-- 開始按鈕 -->
@@ -162,7 +164,6 @@
   <div class="carousel-container" id="carousel-container">
     <div class="carousel" id="carousel">
       <div class="character-card"><img src="IMG_3225.PNG" alt="角色5"><h3>角色5</h3><p>角色5介紹文字</p></div>
-      
     </div>
     <div class="arrow left" onclick="moveCarousel(-1)">&#10094;</div>
     <div class="arrow right" onclick="moveCarousel(1)">&#10095;</div>
@@ -199,14 +200,8 @@
   // 手指滑動切換
   let startX = 0;
   const container = document.getElementById('carousel-container');
-  container.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  container.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-    if(diff > 50) moveCarousel(-1);
-    else if(diff < -50) moveCarousel(1);
-  });
-
+  container.addEventListener('touchstart', 
+                             
   // =======================
   // 測驗系統
   // =======================
@@ -304,6 +299,7 @@
 </script>
 </body>
 </html>
+
 
 
 
