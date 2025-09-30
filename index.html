@@ -119,6 +119,27 @@
     width: 70%;
     margin-bottom: 2vw;
   }
+  /* =======================
+   淡出效果
+======================= */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* =======================
+   淡入效果
+======================= */
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* 頁面初始設置 */
+#home-page,
+#quiz-page {
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -245,10 +266,45 @@
     const quizPage=document.getElementById('quiz-page');
     quizPage.innerHTML=`<h2>測驗結束！你最像的是 ${maxRole}</h2>`;
   }
+// =======================
+  // 開始測驗時，首頁淡出，測驗頁面淡入
+  // =======================
+  function startTest() {
+    const homePage = document.getElementById('home-page');
+    const quizPage = document.getElementById('quiz-page');
+    
+    // 首頁淡出
+    homePage.classList.add('fade-out');
+    
+    // 等待動畫結束後，隱藏首頁並顯示測驗頁面，然後進行淡入
+    setTimeout(() => {
+      homePage.style.display = 'none';
+      quizPage.style.display = 'block';
+      quizPage.classList.add('fade-in');
+    }, 1000); // 1秒後執行，與淡出時間一致
+  }
+
+  // =======================
+  // 顯示結果時淡出測驗頁面，並顯示結果
+  // =======================
+  function showResult() {
+    const quizPage = document.getElementById('quiz-page');
+    
+    // 淡出測驗頁面
+    quizPage.classList.add('fade-out');
+    
+    // 等待動畫結束後顯示結果
+    setTimeout(() => {
+      quizPage.innerHTML = `<h2>測驗結束！你最像的是 ${maxRole}</h2>`;
+      quizPage.classList.remove('fade-out');
+      quizPage.classList.add('fade-in');
+    }, 1000); // 1秒後執行
+  }
 
 </script>
 </body>
 </html>
+
 
 
 
