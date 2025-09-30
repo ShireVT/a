@@ -126,6 +126,7 @@
   .fade-out {
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    visibility: hidden;
   }
 
   /* =======================
@@ -134,12 +135,14 @@
   .fade-in {
     opacity: 1;
     transition: opacity 1s ease-in-out;
+    visibility: visible;
   }
 
   /* 頁面初始設置 */
   #home-page,
   #quiz-page {
     opacity: 1;
+    visibility: visible;
   }
 
 </style>
@@ -197,11 +200,6 @@
     updateCarousel();
   }
 
-  // 手指滑動切換
-  let startX = 0;
-  const container = document.getElementById('carousel-container');
-  container.addEventListener('touchstart', 
-                             
   // =======================
   // 測驗系統
   // =======================
@@ -213,10 +211,8 @@
     { text: "5.如果收到簡訊說你的帳號被盜用了並向你要錢，你會？", options: ["傳奇怪的訊息回去","我帳號更貴啊你才應該給我錢","忽略簡訊","不相信，直接刪除郵件","核實真偽"] },
     { text: "6.投資賺錢了你會？", options: ["存銀行賺利息","課金","我怕賠錢這樣就好了","繼續啊賺更多","好好規劃這筆錢財"] },
     { text: "7.如果收到是我是我詐騙？", options: ["跟他談心","問他借的錢什麼時候還","直接掛電話","反跟他推銷保險","「什麼......？他明明已經去世了啊......」"] },
-    { text: "8.某賭博網站顯示你「差一點中大獎」，並鼓勵你再儲值一次，你會？", options: ["再一課點點就好","儲值啊必須儲","這是騙錢的吧","跟朋友說，讓朋友去儲值","直接關掉頁面"] },
-    { text: "9.網購後收到詐騙包裹，你會？", options: ["好奇裡面的東西，花錢領回家","隨機抽一名路人送他","不領","送給朋友","查詢網購紀錄"] },
-    { text: "10.當你有朋友跟你說出國有高薪工作，你會?", options: ["在出境時被警告於是放棄","到了當地被賣掉","拒絕","介紹朋友去","欣然答應 但默默封鎖他"] }
-  ];
+    { text: "8.某賭博網站顯示你「差一點中大獎」，並鼓勵你再儲值一次，你會？", options: ["再
+
   const optionToRole = ["role1","role2","role3","role4","role5"];
   let currentQuestion = 0;
   let scores = { role1:0, role2:0, role3:0, role4:0, role5:0 };
@@ -299,6 +295,7 @@
 </script>
 </body>
 </html>
+
 
 
 
