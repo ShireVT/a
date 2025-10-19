@@ -25,7 +25,7 @@ body{
 }
 .intro h1 { 
   margin-bottom:1vw; 
-  font-size: clamp(32px, 8vw, 48px);
+  font-size: clamp(36px, 10vw, 60px);
   font-weight: bold;
   opacity:0;
   transform: translateY(-20px);
@@ -33,7 +33,7 @@ body{
 }
 .intro p { 
   margin-bottom:2vw; 
-  font-size: clamp(14px, 4vw, 20px);
+  font-size: clamp(16px, 5vw, 24px);
   opacity:0;
   transform: translateY(-20px);
   animation: fadeSlideIn 1s forwards;
@@ -47,8 +47,8 @@ body{
 /* 開始按鈕 */
 .start-button{
   margin-top:1vw;
-  padding:3vw 12vw;
-  font-size: clamp(20px, 5vw, 28px);
+  padding:4vw 10vw;
+  font-size: clamp(22px, 6vw, 32px);
   cursor:pointer;color:#000;border-radius:16px;background-color:#fff;
   border:none;transition: transform 0.2s ease, background 0.3s ease;
   opacity:0;
@@ -64,11 +64,11 @@ body{
 
 /* 首頁圖片 */
 #home-page img{
-  width: 80%;
-  max-width:600px;
+  width: 90%;
+  max-width:90vw;
   height: auto;
   display:block;
-  margin:0 auto 2vw auto;
+  margin:0 auto 4vw auto;
   opacity:0;
   transform: translateY(20px);
   animation: fadeSlideInImg 1s forwards;
@@ -80,8 +80,15 @@ body{
 
 /* 測驗按鈕 */
 .quiz-option{
-  padding:12px 24px;font-size:18px;border-radius:10px;border:2px solid #333;
-  background-color:#fff;cursor:pointer;width:70%;margin-bottom:2vw;
+  padding:16px 24px;
+  font-size:clamp(18px,5vw,28px);
+  border-radius:10px;
+  border:2px solid #333;
+  background-color:#fff;
+  cursor:pointer;
+  width:90%;
+  max-width:500px;
+  margin-bottom:3vw;
   transition: transform 0.2s ease, background 0.3s;
 }
 .quiz-option:hover{background-color:#f0f0f0;}
@@ -89,6 +96,10 @@ body{
 
 /* 題目過渡動畫 */
 .fade-content{opacity:1; transform: translateY(0); transition: all 0.3s ease;}
+#quiz-page h2{
+  font-size: clamp(20px,6vw,32px);
+  margin-bottom:4vw;
+}
 
 /* 結果頁面 */
 .result-page{
@@ -105,13 +116,22 @@ body{
 .result-page.show{opacity:1;}
 
 #result-page img{
+  width:90%;
   max-width:90vw;
   max-height:90vh;
-  width:auto;
   height:auto;
   object-fit:contain;
   opacity:0;
   transition: opacity 0.6s ease;
+}
+
+/* 手機端調整 */
+@media (max-width:768px){
+  .intro h1{ font-size:clamp(32px,10vw,48px); }
+  .intro p{ font-size:clamp(14px,4.5vw,20px); }
+  .start-button{ padding:4vw 8vw; font-size:clamp(20px,6vw,28px); }
+  .quiz-option{ width:95%; font-size:clamp(18px,5vw,26px); padding:14px 20px; }
+  #home-page img{ width:95%; max-width:95vw; margin-bottom:4vw; }
 }
 </style>
 </head>
@@ -145,7 +165,7 @@ const questions = [
   { text:"7.如果收到是我是我詐騙？", options:["跟他談心","問他借的錢什麼時候還","直接掛電話","反跟他推銷保險","「什麼......？他明明已經去世了啊......」"]},
   { text:"8.某賭博網站顯示你「差一點中大獎」，並鼓勵你再儲值一次，你會？", options:["再一課點點就好","儲值啊必須儲","這是騙錢的吧","跟朋友說，讓朋友去儲值","直接關掉頁面"]},
   { text:"9.網購後收到詐騙包裹，你會？", options:["好奇裡面的東西，花錢領回家","隨機抽一名路人送他","不領","送給朋友","查詢網購紀錄"]},
-  { text:"10.當你有朋友跟你說出國有高薪工作，你會?", options:["在出境時被警告於是放棄","到了當地被賣掉","拒絕","介紹朋友去","欣然答應 但默默封鎖他"]}
+  { text:"10.當你有朋友跟你說出國有高薪工作，你會?", options:["在出境時被警告於是放棄","到了當地被賣掉","拒絕","介紹朋友去","欣然答應 但默默封鎖他"] }
 ];
 
 const optionToRole=["role1","role2","role3","role4","role5"];
