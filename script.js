@@ -103,7 +103,7 @@ function showResult(){
 
   const title = document.createElement('h2');
   title.id = 'result-title';
-  title.innerText = `你的詐騙人格是：${maxRole.toUpperCase()}`;
+  
 
   const img = document.createElement('img');
   img.id = 'result-image';
